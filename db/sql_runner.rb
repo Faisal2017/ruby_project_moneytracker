@@ -4,7 +4,7 @@ class SqlRunner
 
   def SqlRunner.run(sql)
     begin
-      db = PG. connect({ dbname: 'moneytracker', host: 'localhost' })
+      db = PG.connect({ dbname: 'moneytracker', host: 'localhost' })
       result = db.exec(sql)
     ensure
       db.close
