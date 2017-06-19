@@ -1,4 +1,4 @@
-require_relative('..db/sql_runner.rb')
+require_relative('../db/sql_runner.rb')
 
 class Transaction
 
@@ -14,36 +14,36 @@ class Transaction
   end
 
   def save()
-    sql = "INSERT INTO transactions (date, amount, merchant_id, tag_id) VALUES ('#{date}', #{amount}, #{merchant_id}, #{tag_id} RETURNING *)"
-    result = Sqlrunner.run(sql)
+    sql = "INSERT INTO transactions (date, amount, merchant_id, tag_id) VALUES ('#{@date}', #{@amount}, #{@merchant_id}, #{@tag_id}) RETURNING *"
+    result = SqlRunner.run(sql)
     id = result.first['id']
     @id = id 
   end
 
   def update()
     sql = "UPDATE transactions SET date = '#{@date}', amount = #{@amount}, merchant_id = #{@merchant_id}, tag_id=#{@tag_id} WHERE id = #{@id}"
-    Sqlrunner.run(sql)
+    SqlRunner.run(sql)
   end
 
   def delete()
     sql = "DELETE FROM transactions WHERE id = #{@id}"
-    Sqlrunner.run(sql)
+    SqlRunner.run(sql)
   end
 
   def Transaction.all()
     sql = "SELECT * FROM tranactions"
-    results = Sqlrunner.run(sql)
+    results = SqlRunner.run(sql)
     return results.map { |hash| Transaction.new(hash) }
   end
 
   def Transaction.delete_all()
     sql = "DELETE FROM transactions"
-    Sqlrunner.run(sql)
+    SqlRunner.run(sql)
   end
 
   def Transaction.destroy(id)
     sql = "DELETE FROM transactions WHERE id = #{id}"
-    Sqlrunner.run(sql)
+    SqlRunner.run(sql)
   end 
 
 end  

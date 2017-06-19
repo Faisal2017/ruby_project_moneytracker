@@ -10,27 +10,27 @@ class Tag
   end
 
   def save()
-    sql = "INSERT INTO tags (tag_name) VALUES ('#{tag_name}' RETURNING *)"
-    result = sql_runner.run(sql)
+    sql = "INSERT INTO tags (tag_name) VALUES ('#{@tag_name}') RETURNING *"
+    result = SqlRunner.run(sql)
     id = result.first['id']
     @id = id 
   end
 
   def Tag.find(id)
     sql = "SELECT FROM tags WHERE id = #{id}"
-    results = Sqlrunner.run(sql).first()
+    results = SqlRunner.run(sql).first()
     return Tag.new(results)
   end
 
   def Tag.all()
     sql = "SELECT * FROM tags"
-    result_hashes = Sqlrunner.run(sql)
+    result_hashes = SqlRunner.run(sql)
     return result_hashes.map { |result_hash| Tag.new (result_hash) }
   end
 
   def Tag.delete_all()
-    sql = "DELETE * FROM tags"
-    Sqlrunner.run(sql)
+    sql = "DELETE FROM tags"
+    SqlRunner.run(sql)
   end
 
 end  
