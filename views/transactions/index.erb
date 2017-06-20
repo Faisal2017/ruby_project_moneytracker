@@ -1,0 +1,27 @@
+<h1> All your spent cash!!</h1>
+
+<table>
+  
+  <tr>
+    <th>date</th>
+    <th></th>
+    <th>amount</th>
+    <th></th>
+    <th>merchant</th>
+    <th></th>
+    <th>type</th>
+  </tr>
+
+  <% for transaction in @transactions %>
+  <tr>
+    <td> <%= transaction.date %> </td>
+    <td>|</td>
+    <td> <%= transaction.amount %> </td>
+    <td>|</td>
+    <td> <%= transaction.merchant.merchant_name %></td>
+    <td>|</td>
+    <td> <%= transaction.tag.tag_name %> </td>
+  </tr>
+  <% end %>
+
+</table>

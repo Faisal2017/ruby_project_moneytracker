@@ -30,8 +30,22 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def merchant()
+    sql = "SELECT * FROM merchants
+    WHERE id = #{@merchant_id}"
+    results = SqlRunner.run(sql)
+    return Merchant.new(results.first)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags
+    WHERE id = #{@tag_id}"
+    results = SqlRunner.run(sql)
+    return Tag.new(results.first)
+  end
+
   def Transaction.all()
-    sql = "SELECT * FROM tranactions"
+    sql = "SELECT * FROM transactions"
     results = SqlRunner.run(sql)
     return results.map { |hash| Transaction.new(hash) }
   end
