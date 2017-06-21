@@ -1,0 +1,44 @@
+<h2>A New Transaction</h2>
+
+<form action="/transactions" method = "post">
+  
+  <label for="date">When did you spend this:</label>
+  <select id="date" name="date">
+    <option value="Jan">Jan</option>
+    <option value="Feb">Feb</option>
+    <option value="Mar">Mar</option>
+    <option value="Apr">Apr</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="Aug">Aug</option>
+    <option value="Sep">Sep</option>
+    <option value="Oct">Oct</option>
+    <option value="Nov">Nov</option>
+    <option value="Dec">Dec</option>
+  </select>
+
+  <label for="amount">How much did you spend: </label>
+  <input type="number" name="amount" id="amount">
+
+  <label>
+    Select a Merchant:
+    <select name="merchant_id">
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>"> <%= merchant.merchant_name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Select a Tag:
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"> <%= tag.tag_name %></option>
+      <% end %>
+    </select>
+  </label>
+
+<input type="submit" name="Add Spend">
+
+</form>

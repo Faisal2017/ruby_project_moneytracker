@@ -4,8 +4,12 @@
   
   <% for tag in @tags %>
 
-  <li> <%= tag.tag_name %> </li>
+  <ui> <%= tag.tag_name %> </li>
+  <p><a href="/tags/<%= tag.id %>">Show Total Spend by indivividual category</a> </p>
 
   <% end %>
   
+  
 </ul>
+
+<a href="/tags/new">New Tag</a>

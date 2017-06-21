@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require('pry-byebug')
 
 class Tag
 
@@ -13,11 +14,17 @@ class Tag
     sql = "INSERT INTO tags (tag_name) VALUES ('#{@tag_name}') RETURNING *"
     result = SqlRunner.run(sql)
     id = result.first['id']
-    @id = id 
+    @id = id.to_i() 
+  end
+
+  def sum_by_tag
+    sql = "SELECT * FROM transactions WHERE tag_id = #{@id}"
+    results = SqlRunner.run(sql)
+    return results.sum { |transaction_hash| transaction_hash["amount"].to_i() }
   end
 
   def Tag.find(id)
-    sql = "SELECT FROM tags WHERE id = #{id}"
+    sql = "SELECT * FROM tags WHERE id = #{id}"
     results = SqlRunner.run(sql).first()
     return Tag.new(results)
   end
@@ -32,5 +39,10 @@ class Tag
     sql = "DELETE FROM tags"
     SqlRunner.run(sql)
   end
+
+  def Tag.destroy(id)
+    sql = "DELETE FROM tags WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end 
 
 end  
