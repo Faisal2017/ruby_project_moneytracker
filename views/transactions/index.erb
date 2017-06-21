@@ -1,10 +1,8 @@
-<h2> Total Spending So Far:</h2>
-
 <% sum = 0  %>
 <% for transaction in @transactions %>
 <%  sum += transaction.amount %>
 <% end %>
-<%= sum %>
+<h2> Total Spending So Far: </h2>  <p> £ <%= sum %> </p>
 
 <h2> Your Spending by Transaction:</h2>
 
@@ -33,10 +31,9 @@
     <td> <%= transaction.merchant.merchant_name %></td>
     <td>|</td>
     <td> <%= transaction.tag.tag_name %> </td>
-    <td>|</td>
     <td>
     <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-    <input class="button -- delete" type="submit" value="Delete" />
+    <input class="delete-button" type="submit" value="Delete" />
     </td>
     </tr>
     <% end %>

@@ -8,12 +8,12 @@ get '/merchants' do
 end  
 
 get '/merchants/new' do
-  @mercahnts = Merchants.all()
+  @merchants = Merchant.all()
   erb(:"merchants/new")
 end
 
 post '/merchants' do
   merchant = Merchant.new(params)
   merchant.save
-  redirect to ('/tags')
+  redirect to ('/merchants')
 end

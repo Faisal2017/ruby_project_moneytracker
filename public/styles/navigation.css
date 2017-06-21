@@ -22,7 +22,10 @@
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 #navigation_bar li a:hover {
     background-color: #b3d9ff;
 } 
+
+#home {
+  background-image: url(images/currency.jpg);
+}

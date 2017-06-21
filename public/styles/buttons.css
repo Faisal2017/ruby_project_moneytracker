@@ -1,7 +1,20 @@
-/*below .button is applying to button class, can make more selective with -- example...*/
-
-.button  {
-  border: 30px black;
+/*.button {
   background-color: red;
   margin: 20px 20px 20px 20px;
+}*/
+
+.delete-button {
+    background-color: #6d737c; 
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #123568; 
 }
