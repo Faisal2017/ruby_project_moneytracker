@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MoneyTracker</title>
 
+  <title>MoneyTracker</title>
+  <link rel="stylesheet" type="text/css" href="/styles/navigation.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/buttons.css">
+  <link rel="stylesheet" type="text/css" href="/styles/table.css">
 </head>
 <body>
 
-<ul>
-  <li>
-    <a href="/">Home Page</a>
-  </li>
-  <li>
-    <a href="/tags">Type of spends</a>
-  </li>
-  <li>
-    <a href="/merchants">Where you've been spending</a>
-  </li>
-  <li>
-    <a href="/transactions">Your spending</a>
-  </li>
-</ul>
+  <div id="navigation_bar">
+    <h1>MoneyTracker</h1>
+    <ul>
+      <li>
+        <a href="/">Home Page</a>
+      </li>
+      <li>
+        <a href="/tags">Type of spends</a>
+      </li>
+      <li>
+        <a href="/merchants">Where you've been spending</a>
+      </li>
+      <li>
+        <a href="/transactions">Your spending</a>
+      </li>
+    </ul>
+  </div>
 
 <%= yield %>
 
